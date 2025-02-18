@@ -5,15 +5,18 @@ class Solution {
         ArrayList<Integer> answer = new ArrayList<Integer>();
         
         for(int i = l; i<= r; i++){
-            String str = Integer.toString(i);
+            int num = i;
             boolean isValid = true;
             
-            for(char c : str.toCharArray()){
-                if(c != '0' && c != '5'){
+            while(num > 0){
+                int n = num % 10;
+                if(n != 0 && n != 5){
                     isValid = false;
                     break;
                 }
-            }            
+                num /= 10;
+            }
+           
             if(isValid){
                 answer.add(i);
             }
